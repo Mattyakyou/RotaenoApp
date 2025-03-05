@@ -1,0 +1,529 @@
+{% load static %}
+<html>
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/records.css' %}" type="text/css" />
+</head>
+
+<body>
+    <div id="top">
+        <div id="top_main">
+            <form action="{% url 'main:best_page' %}" method="get" id="title">
+                <button type="submit" id="top_btn">Rotaeno</button>
+            </form>
+            <form action="{% url 'main:input_score_page' %}" method="get" id="moveInputScore">
+                <button type="submit" id="top_btn">スコア入力</button>
+            </form>
+            <form action="{% url 'main:records_page' %}" method="get" id="moveResult">
+                <button type="submit" id="top_btn">レコード一覧</button>
+            </form>
+            <div id="playerName">{{ list.8 }}</div>
+        </div>
+    </div>
+    <div id="all">
+        <div id="records_info">
+            <div id="I_info" class="info_child">
+                <div id="I_info_title" class="info_title">
+                    I
+                </div>
+                <div id="count_I_clear" class="count_clear">
+                    <div id="I_clear_placehold" class="clear_placehold">
+                        Clear:
+                    </div>
+                    <div id="I_clear_main" class="clear_main">
+                        {{ list.3.0 }} / {{ list.1 }}
+                    </div>
+                </div>
+                <div id="count_I_fc" class="count_fc">
+                    <div id="I_fc_placehold" class="fc_placehold">
+                        Full Combo:
+                    </div>
+                    <div id="I_fc_main" class="fc_main">
+                        {{ list.3.1 }} / {{ list.1 }}
+                    </div>
+                </div>
+                <div id="count_I_ap" class="count_ap">
+                    <div id="I_ap_placehold" class="ap_placehold">
+                        All Perfect:
+                    </div>
+                    <div id="I_ap_main" class="ap_main">
+                        {{ list.3.2 }} / {{ list.1 }}
+                    </div>
+                </div>
+                <div id="count_I_max" class="count_max">
+                    <div id="I_max_placehold" class="max_placehold">
+                        Max:
+                    </div>
+                    <div id="I_max_main" class="max_main">
+                        {{ list.3.3 }} / {{ list.1 }}
+                    </div>
+                </div>
+                <div id="I_avg_score" class="dis_avg_score">
+                    <div id="I_avg_score_placehold" class="avg_score_placehold">
+                        平均score:
+                    </div>
+                    <div id="I_avg_score_main" class="avg_score_main">
+                        {{ list.3.4|floatformat:1 }}
+                    </div>
+                </div>
+                <div id="I_op" class="dis_op">
+                    <div id="I_op_placehold" class="op_placehold">
+                        達成率:
+                    </div>
+                    <div id="I_op_main" class="op_main">
+                        {{ list.3.5|floatformat:2 }}%
+                    </div>
+                </div>
+            </div>
+            <div id="II_info" class="info_child">
+                <div id="II_info_title" class="info_title">
+                    II
+                </div>
+                <div id="count_II_clear" class="count_clear">
+                    <div id="II_clear_placehold" class="clear_placehold">
+                        Clear:
+                    </div>
+                    <div id="II_clear_main" class="clear_main">
+                        {{ list.4.0 }} / {{ list.1 }}
+                    </div>
+                </div>
+                <div id="count_II_fc" class="count_fc">
+                    <div id="II_fc_placehold" class="fc_placehold">
+                        Full Combo:
+                    </div>
+                    <div id="II_fc_main" class="fc_main">
+                        {{ list.4.1 }} / {{ list.1 }}
+                    </div>
+                </div>
+                <div id="count_II_ap" class="count_ap">
+                    <div id="II_ap_placehold" class="ap_placehold">
+                        All Perfect:
+                    </div>
+                    <div id="II_ap_main" class="ap_main">
+                        {{ list.4.2 }} / {{ list.1 }}
+                    </div>
+                </div>
+                <div id="count_II_max" class="count_max">
+                    <div id="II_max_placehold" class="max_placehold">
+                        Max:
+                    </div>
+                    <div id="II_max_main" class="max_main">
+                        {{ list.4.3 }} / {{ list.1 }}
+                    </div>
+                </div>
+                <div id="II_avg_score" class="dis_avg_score">
+                    <div id="II_avg_score_placehold" class="avg_score_placehold">
+                        平均score:
+                    </div>
+                    <div id="II_avg_score_main" class="avg_score_main">
+                        {{ list.4.4|floatformat:1 }}
+                    </div>
+                </div>
+                <div id="II_op" class="dis_op">
+                    <div id="II_op_placehold" class="op_placehold">
+                        達成率:
+                    </div>
+                    <div id="II_op_main" class="op_main">
+                        {{ list.4.5|floatformat:2 }}%
+                    </div>
+                </div>
+            </div>
+            <div id="III_info" class="info_child">
+                <div id="III_info_title" class="info_title">
+                    III
+                </div>
+                <div id="count_III_clear" class="count_clear">
+                    <div id="III_clear_placehold" class="clear_placehold">
+                        Clear:
+                    </div>
+                    <div id="III_clear_main" class="clear_main">
+                        {{ list.5.0 }} / {{ list.1 }}
+                    </div>
+                </div>
+                <div id="count_III_fc" class="count_fc">
+                    <div id="III_fc_placehold" class="fc_placehold">
+                        Full Combo:
+                    </div>
+                    <div id="III_fc_main" class="fc_main">
+                        {{ list.5.1 }} / {{ list.1 }}
+                    </div>
+                </div>
+                <div id="count_III_ap" class="count_ap">
+                    <div id="III_ap_placehold" class="ap_placehold">
+                        All Perfect:
+                    </div>
+                    <div id="III_ap_main" class="ap_main">
+                        {{ list.5.2 }} / {{ list.1 }}
+                    </div>
+                </div>
+                <div id="count_III_max" class="count_max">
+                    <div id="III_max_placehold" class="max_placehold">
+                        Max:
+                    </div>
+                    <div id="III_max_main" class="max_main">
+                        {{ list.5.3 }} / {{ list.1 }}
+                    </div>
+                </div>
+                <div id="III_avg_score" class="dis_avg_score">
+                    <div id="III_avg_score_placehold" class="avg_score_placehold">
+                        平均score:
+                    </div>
+                    <div id="III_avg_score_main" class="avg_score_main">
+                        {{ list.5.4|floatformat:1 }}
+                    </div>
+                </div>
+                <div id="III_op" class="dis_op">
+                    <div id="III_op_placehold" class="op_placehold">
+                        達成率:
+                    </div>
+                    <div id="III_op_main" class="op_main">
+                        {{ list.5.5|floatformat:2 }}%
+                    </div>
+                </div>
+            </div>
+            <div id="IV_info" class="info_child">
+                <div id="IV_info_title" class="info_title">
+                    IV
+                </div>
+                <div id="count_IV_clear" class="count_clear">
+                    <div id="IV_clear_placehold" class="clear_placehold">
+                        Clear:
+                    </div>
+                    <div id="IV_clear_main" class="clear_main">
+                        {{ list.6.0 }} / {{ list.1 }}
+                    </div>
+                </div>
+                <div id="count_IV_fc" class="count_fc">
+                    <div id="IV_fc_placehold" class="fc_placehold">
+                        Full Combo:
+                    </div>
+                    <div id="IV_fc_main" class="fc_main">
+                        {{ list.6.1 }} / {{ list.1 }}
+                    </div>
+                </div>
+                <div id="count_IV_ap" class="count_ap">
+                    <div id="IV_ap_placehold" class="ap_placehold">
+                        All Perfect:
+                    </div>
+                    <div id="IV_ap_main" class="ap_main">
+                        {{ list.6.2 }} / {{ list.1 }}
+                    </div>
+                </div>
+                <div id="count_IV_max" class="count_max">
+                    <div id="IV_max_placehold" class="max_placehold">
+                        Max:
+                    </div>
+                    <div id="IV_max_main" class="max_main">
+                        {{ list.6.3 }} / {{ list.1 }}
+                    </div>
+                </div>
+                <div id="IV_avg_score" class="dis_avg_score">
+                    <div id="IV_avg_score_placehold" class="avg_score_placehold">
+                        平均score:
+                    </div>
+                    <div id="IV_avg_score_main" class="avg_score_main">
+                        {{ list.6.4|floatformat:1 }}
+                    </div>
+                </div>
+                <div id="IV_op" class="dis_op">
+                    <div id="IV_op_placehold" class="op_placehold">
+                        達成率:
+                    </div>
+                    <div id="IV_op_main" class="op_main">
+                        {{ list.6.5|floatformat:2 }}%
+                    </div>
+                </div>
+            </div>
+            <div id="IV_a_info" class="info_child">
+                <div id="IV_a_info_title" class="info_title">
+                    IV-α
+                </div>
+                <div id="count_IV_a_clear" class="count_clear">
+                    <div id="IV_a_clear_placehold" class="clear_placehold">
+                        Clear:
+                    </div>
+                    <div id="IV_a_clear_main" class="clear_main">
+                        {{ list.7.0 }} / {{ list.2 }}
+                    </div>
+                </div>
+                <div id="count_IV_a_fc" class="count_fc">
+                    <div id="IV_a_fc_placehold" class="fc_placehold">
+                        Full Combo:
+                    </div>
+                    <div id="IV_a_fc_main" class="fc_main">
+                        {{ list.7.1 }} / {{ list.2 }}
+                    </div>
+                </div>
+                <div id="count_IV_a_ap" class="count_ap">
+                    <div id="IV_a_ap_placehold" class="ap_placehold">
+                        All Perfect:
+                    </div>
+                    <div id="IV_a_ap_main" class="ap_main">
+                        {{ list.7.2 }} / {{ list.2 }}
+                    </div>
+                </div>
+                <div id="count_IV_a_max" class="count_max">
+                    <div id="IV_a_max_placehold" class="max_placehold">
+                        Max:
+                    </div>
+                    <div id="IV_a_max_main" class="max_main">
+                        {{ list.7.3 }} / {{ list.2 }}
+                    </div>
+                </div>
+                <div id="IV_a_avg_score" class="dis_avg_score">
+                    <div id="IV_a_avg_score_placehold" class="avg_score_placehold">
+                        平均score:
+                    </div>
+                    <div id="IV_avg_score_main" class="avg_score_main">
+                        {{ list.7.4|floatformat:1 }}
+                    </div>
+                </div>
+                <div id="IV_a_op" class="dis_op">
+                    <div id="IV_a_op_placehold" class="op_placehold">
+                        達成率:
+                    </div>
+                    <div id="IV_a_op_main" class="op_main">
+                        {{ list.7.5|floatformat:2 }}%
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="main">
+            <table id="main_t">
+                <thead>
+                    <th id="th_title">タイトル</th>
+                    <th>難易度</th>
+                    <th>レベル</th>
+                    <th>スコア</th>
+                    <th>ランク</th>
+                    <th>定数</th>
+                    <th>レート</th>
+                    <th>ランプ</th>
+                </thead>
+                <tbody id="main_tb">
+                    {% for i in list.0 %}
+                    <tr id="main_tr">
+                        <td>{{ i.0 }}</td>
+
+                        {% if i.1 == "IV-α" %}
+                        <td id="table_IV_a">{{ i.1 }}</td>
+                        {% elif i.1 == "IV" %}
+                        <td id="table_IV">{{ i.1 }}</td>
+                        {% elif i.1 == "III" %}
+                        <td id="table_III">{{ i.1 }}</td>
+                        {% elif i.1 == "II" %}
+                        <td id="table_II">{{ i.1 }}</td>
+                        {% elif i.1 == "I" %}
+                        <td id="table_I">{{ i.1 }}</td>
+                        {% endif %}
+
+                        {% if i.2 < 10 %}
+                        <td id="table_diff">{{ i.2|floatformat:0 }}</td>
+                        {% elif i.2 <= 10.5 %}
+                        <td id="table_diff">10</td>
+                        {% elif i.2 <= 10.9 %}
+                        <td id="table_diff">10+</td>
+                        {% elif i.2 <= 11.5 %}
+                        <td id="table_diff">11</td>
+                        {% elif i.2 <= 11.9 %}
+                        <td id="table_diff">11+</td>
+                        {% elif i.2 <= 12.5 %}
+                        <td id="table_diff">12</td>
+                        {% elif i.2 <= 12.9 %}
+                        <td id="table_diff">12+</td>
+                        {% elif i.2 <= 13.5 %}
+                        <td id="table_diff">13</td>
+                        {% elif i.2 <= 13.9 %}
+                        <td id="table_diff">13+</td>
+                        {% elif i.2 <= 14.5 %}
+                        <td id="table_diff">14</td>
+                        {% elif i.2 <= 14.9 %}
+                        <td id="table_diff">14+</td>
+                        {% endif %}
+
+                        <td id="table_score">{{ i.3 }}</td>
+
+                        {% if i.3 >= 1008000 %}
+                        <td id="table_rank"><img src="https://static.wikia.nocookie.net/rotaeno/images/c/c9/Rank_EX%2B.png/revision/latest?cb=20250130201714" class="table_rank_img"></td>
+                        {% elif i.3 >= 1000000 %}
+                        <td id="table_rank"><img src="https://static.wikia.nocookie.net/rotaeno/images/c/c7/Rank_Ex.png/revision/latest?cb=20240124005219" class="table_rank_img"></td>
+                        {% elif i.3 >= 980000 %}
+                        <td id="table_rank"><img src="https://static.wikia.nocookie.net/rotaeno/images/0/05/Rank_S%2B.png/revision/latest?cb=20250130201701" class="table_rank_img"></td>
+                        {% elif i.3 >= 950000 %}
+                        <td id="table_rank"><img src="https://static.wikia.nocookie.net/rotaeno/images/0/04/Rank_s.png/revision/latest?cb=20240125060712" class="table_rank_img"></td>
+                        {% elif i.3 >= 900000 %}
+                        <td id="table_rank"><img src="https://static.wikia.nocookie.net/rotaeno/images/d/dd/Rank_A%2B.png/revision/latest?cb=20250130201640" class="table_rank_img"></td>
+                        {% elif i.3 >= 850000 %}
+                        <td id="table_rank"><img src="https://static.wikia.nocookie.net/rotaeno/images/4/44/Rank_a.png/revision/latest?cb=20240125060849" class="table_rank_img"></td>
+                        {% elif i.3 >= 800000 %}
+                        <td id="table_rank"><img src="https://static.wikia.nocookie.net/rotaeno/images/d/d5/Rank_b.png/revision/latest?cb=20240125060929" class="table_rank_img"></td>
+                        {% elif i.3 >= 700000 %}
+                        <td id="table_rank"><img src="https://static.wikia.nocookie.net/rotaeno/images/8/88/Rank_c.png/revision/latest?cb=20240125061127" class="table_rank_img"></td>
+                        {% elif i.3 >= 600000 %}
+                        <td id="table_rank"><img src="https://static.wikia.nocookie.net/rotaeno/images/6/6e/Rank_d.png/revision/latest?cb=20240125061138" class="table_rank_img"></td>
+                        {% elif i.3 >= 500000 %}
+                        <td id="table_rank"><img src="https://static.wikia.nocookie.net/rotaeno/images/9/92/Rank_e.png/revision/latest?cb=20240125061145" class="table_rank_img"></td>
+                        {% else %}
+                        <td id="table_rank"><img src="https://static.wikia.nocookie.net/rotaeno/images/3/3a/Rank_f.png/revision/latest?cb=20240125061153" class="table_rank_img"></td>
+                        {% endif %}
+
+                        <td id="table_const">{{ i.2 }}</td>
+                        <td id="table_rate">{{ i.4|floatformat:3 }}</td>
+
+                        {% if i.3 == 1010000 %}
+                        <td id="table_ramp"><div class="ramp_max" data-text="AP+">AP+</div></td>
+                        {% elif i.5 == "ap" %}
+                        <td id="table_ramp" class="ramp_ap">AP</td>
+                        {% elif i.5 == "fc" %}
+                        <td id="table_ramp" class="ramp_fc">FC</td>
+                        {% elif i.5 == "clear" %}
+                        <td id="table_ramp" class="ramp_clr">CLR</td>
+                        {% elif i.5 == "none" %}
+                        <td id="table_ramp" class="ramp_none"></td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div id="pagenation">
+                {% for num in list.0.paginator.page_range %}
+                    {% if num == list.0.number %}
+                    <button class="page_btn" id="selected_btn">{{ num }}</button>  
+                    {% else %}
+                    <button onclick="location.href=`?page={{ num }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}`" class="page_btn">{{ num }}</button>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div id="setting_sort">
+            <div id="sort_order">
+                <form method="get" action="">
+                    {% for key, value in request.GET.items %}
+                        {% if key != 'order' %}
+                            <input type="hidden" name="{{ key }}" value="{{ value }}">
+                        {% endif %}
+                    {% endfor %}
+                    <input type="hidden" name="order" value="asc">
+                    <button type="submit" id="sort_asc">昇順</button>
+                </form>
+                <form method="get" action="">
+                    {% for key, value in request.GET.items %}
+                        {% if key != 'order' %}
+                            <input type="hidden" name="{{ key }}" value="{{ value }}">
+                        {% endif %}
+                    {% endfor %}
+                    <input type="hidden" name="order" value="desc">
+                    <button type="submit" id="sort_desc">降順</button>
+                </form>
+            </div>
+            <div id="sort_type">
+                <form method="get" action="">
+                    {% for key, value in request.GET.items %}
+                        {% if key != 'type' %}
+                            <input type="hidden" name="{{ key }}" value="{{ value }}">
+                        {% endif %}
+                    {% endfor %}
+                    <input type="hidden" name="type" value="rate">
+                    <button type="submit" id="sort_rate">レート</button>
+                </form>
+                <form method="get" action="">
+                    {% for key, value in request.GET.items %}
+                        {% if key != 'type' %}
+                            <input type="hidden" name="{{ key }}" value="{{ value }}">
+                        {% endif %}
+                    {% endfor %}
+                    <input type="hidden" name="type" value="const">
+                    <button type="submit" id="sort_const">譜面定数</button>
+                </form>
+                <form method="get" action="">
+                    {% for key, value in request.GET.items %}
+                        {% if key != 'type' %}
+                            <input type="hidden" name="{{ key }}" value="{{ value }}">
+                        {% endif %}
+                    {% endfor %}
+                    <input type="hidden" name="type" value="score">
+                    <button type="submit" id="sort_score">スコア</button>
+                </form>
+                <form method="get" action="">
+                    {% for key, value in request.GET.items %}
+                        {% if key != 'type' %}
+                            <input type="hidden" name="{{ key }}" value="{{ value }}">
+                        {% endif %}
+                    {% endfor %}
+                    <input type="hidden" name="type" value="level">
+                    <button type="submit" id="sort_level">レベル</button>
+                </form>
+                <form method="get" action="">
+                    {% for key, value in request.GET.items %}
+                        {% if key != 'type' %}
+                            <input type="hidden" name="{{ key }}" value="{{ value }}">
+                        {% endif %}
+                    {% endfor %}
+                    <input type="hidden" name="type" value="diff">
+                    <button type="submit" id="sort_diff">難易度</button>
+                </form>
+            </div>
+
+            <div id="diff">
+                <form method="get" action="">
+                    {% for key, value in request.GET.items %}
+                        {% if key != 'type' %}
+                            <input type="hidden" name="{{ key }}" value="{{ value }}">
+                        {% endif %}
+                    {% endfor %}
+                    <input type="hidden" name="diff" value="I">
+                    <button type="submit" id="filter_I">I</button>
+                </form>
+                <form method="get" action="">
+                    {% for key, value in request.GET.items %}
+                        {% if key != 'type' %}
+                            <input type="hidden" name="{{ key }}" value="{{ value }}">
+                        {% endif %}
+                    {% endfor %}
+                    <input type="hidden" name="diff" value="II">
+                    <button type="submit" id="filter_II">II</button>
+                </form>
+                <form method="get" action="">
+                    {% for key, value in request.GET.items %}
+                        {% if key != 'type' %}
+                            <input type="hidden" name="{{ key }}" value="{{ value }}">
+                        {% endif %}
+                    {% endfor %}
+                    <input type="hidden" name="diff" value="III">
+                    <button type="submit" id="filter_III">III</button>
+                </form>
+                <form method="get" action="">
+                    {% for key, value in request.GET.items %}
+                        {% if key != 'type' %}
+                            <input type="hidden" name="{{ key }}" value="{{ value }}">
+                        {% endif %}
+                    {% endfor %}
+                    <input type="hidden" name="diff" value="IV">
+                    <button type="submit" id="filter_IV">IV</button>
+                </form>
+                <form method="get" action="">
+                    {% for key, value in request.GET.items %}
+                        {% if key != 'type' %}
+                            <input type="hidden" name="{{ key }}" value="{{ value }}">
+                        {% endif %}
+                    {% endfor %}
+                    <input type="hidden" name="diff" value="IV-α">
+                    <button type="submit" id="filter_IV_a">IV-α</button>
+                </form>
+                <form method="get" action="">
+                    {% for key, value in request.GET.items %}
+                        {% if key != 'type' %}
+                            <input type="hidden" name="{{ key }}" value="{{ value }}">
+                        {% endif %}
+                    {% endfor %}
+                    <input type="hidden" name="diff" value="all">
+                    <button type="submit" id="filter_all">All</button>
+                </form>
+            </div>
+            <div id="const">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

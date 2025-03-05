@@ -1,0 +1,112 @@
+{% load static %}
+<html>
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/best.css' %}" type="text/css" />
+</head>
+
+<body>
+    <div id="top">
+        <div id="top_main">
+            <form action="{% url 'main:best_page' %}" method="get" id="title">
+                <button type="submit" id="btn">Rotaeno</button>
+            </form>
+            <form action="{% url 'main:input_score_page' %}" method="get" id="moveInputScore">
+                <button type="submit" id="btn">スコア入力</button>
+            </form>
+            <form action="{% url 'main:records_page' %}" method="get" id="moveResult">
+                <button type="submit" id="btn">レコード一覧</button>
+            </form>
+            <div id="playerName">{{ best_forty.6 }}</div>
+        </div>
+    </div>
+    <div id="main">
+        <div id="playerInfor">
+            <div id="rate">
+                <div id="rate_placehold">
+                    rate
+                </div>
+                <div id="rate_main">
+                    {{ best_forty.5 }}
+                </div>
+            </div>
+            <div id="rate_raw">
+                <div id="rate_raw_placehold">
+                    rate_raw
+                </div>
+                <div id="rate_raw_main">
+                    {{ best_forty.3|floatformat:5 }}
+                </div>
+            </div>
+            <div id="top_rate">
+                <div id="top_rate_placehold">
+                    上位10曲平均
+                </div>
+                <div id="top_rate_main">
+                    {{ best_forty.1|floatformat:5 }}
+                </div>
+            </div>
+            <div id="bottom_rate">
+                <div id="bottom_rate_placehold">
+                    下位30曲平均
+                </div>
+                <div id="bottom_rate_main">
+                    {{ best_forty.2|floatformat:5 }}
+                </div>
+            </div>
+            <div id="rate_max">
+                <div id="rate_max_placehold">
+                    BEST枠最大曲レート
+                </div>
+                <div id="rate_max_main">
+                    {{ best_forty.0.0.1|floatformat:5 }}
+                </div>
+            </div>
+            <div id="rate_min">
+                <div id="rate_min_placehold">
+                    BEST枠最小曲レート
+                </div>
+                <div id="rate_min_main">
+                    {{ best_forty.4.0.1|floatformat:5 }}
+                </div>
+            </div>
+        </div>
+        <div id="main_dis">
+            {% for item in best_forty.0 %}
+            <div class="song">
+                <div class="title">
+                    {{ item.0 }}
+                </div>
+                <div class="score">
+                    {{ item.4 }}
+                </div>
+                <div class="diff">
+                    {% if item.2 == "I" %}
+                    <div id="I_supp">I</div>
+                    {% elif item.2 == "II"  %}
+                    <div id="II_supp">II</div>
+                    {% elif item.2 == "III"  %}
+                    <div id="III_supp">III</div>
+                    {% elif item.2 == "IV"  %}
+                    <div id="IV_supp">IV</div>
+                    {% elif item.2 == "IV_a"  %}
+                    <div id="IV_a_supp">IV-α</div>
+                    {% endif %}
+                </div>
+                <div class="const">
+                    {{ item.3 }}
+                </div>
+                <div class="dis_rate">
+
+                    {{ item.1|floatformat:3 }}
+                </div>
+                <div class="rank">
+                     #{{ forloop.counter }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>

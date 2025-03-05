@@ -1,0 +1,96 @@
+#all {
+    height: auto;
+    width: min-content;
+
+    margin: auto;
+}
+
+#title {
+    font-size: larger;
+    margin: auto;
+}
+
+#form {
+    height: auto;
+    width: 700px;
+
+    display: flex;
+    flex-flow: column;
+    gap: 4px;
+
+    background-color: rgb(200, 200, 200);
+    border-radius: 20px;
+    box-shadow: -5px 0 6px rgb(141, 141, 141);
+
+    overflow: hidden;
+    padding: 15px;
+}
+
+.I,
+.II,
+.III,
+.IV,
+.IV_a {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr 3fr;
+    grid-column-gap: 10px;
+    border-bottom: 2px solid white;
+}
+
+.I_supp,
+.II_supp,
+.III_supp,
+.IV_supp,
+.IV_a_supp {
+    text-align: right;
+}
+
+.clear,
+.fc,
+.ap {
+    text-align: center;
+    padding-left: 4px;
+}
+
+.I_supp {
+    color: rgb(100, 245, 85);
+    text-shadow: 1px 1px 2px white;
+}
+
+.II_supp {
+    color: rgb(65, 65, 255);
+    text-shadow: 1px 1px 2px white;
+}
+
+.III_supp {
+    color: rgb(255, 115, 0);
+    text-shadow: 1px 1px 2px white;
+}
+
+.IV_supp {
+    color: rgb(170, 0, 255);
+    text-shadow: 1px 1px 2px white;
+}
+
+.IV_a_supp {
+    color: rgb(180, 60, 255);
+    text-shadow: 1px 1px 2px white;
+}
+
+.main_btn {
+    width: 100%;
+    padding-top: 10px;
+
+    display: grid;
+    place-items: center;
+}
+
+.btn {
+    width: 60%;
+    height: 35px;
+
+    background-color: rgb(150, 243, 255);
+    border-radius: 20px;
+}
+
+

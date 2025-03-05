@@ -1,0 +1,372 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#top {
+    width: 100%;
+    height: 80px;
+    background-color: rgb(180, 180, 180);
+}
+
+#top_main {
+    height: 100%;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 2fr 1fr;
+}
+
+#title {
+    display: grid;
+    height: 100%;
+    place-items: center;
+    font-size: x-large;
+
+    grid-column: 1/2;
+
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+#moveInputScore {
+    display: grid;
+    height: 100%;
+    place-items: center;
+    font-size: x-large;
+
+    grid-column: 2/3;
+
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+#moveResult {
+    display: grid;
+    height: 100%;
+    place-items: center;
+    font-size: x-large;
+
+    grid-column: 3/4;
+
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+#playerName {
+    display: grid;
+    height: 100%;
+    place-items: center;
+
+    grid-column: 5/6;
+}
+
+#top_btn {
+    all: unset;
+    display: block;
+    background-color: rgba(0, 0, 0, 0);
+    text-align: center;
+    cursor: pointer;
+    height: max-content;
+    width: 200px;
+}
+
+
+
+
+
+#all {
+    display: flex;
+    margin-top: 20px;
+}
+
+#main {
+    height: auto;
+    width: 60%;
+
+    margin-left: 0;
+    margin-top: 20px;
+}
+
+
+#records_info {
+    width: 20%;
+}
+
+.info_child {
+    height: min-content;
+    display: grid;
+    grid-template-columns: 1fr 3fr 3fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    padding: 10px;
+}
+
+.info_title {
+    grid-column: 1/2;
+    grid-row: 1/2;
+
+    font-size: x-large;
+    font-style: italic;
+}
+
+.count_clear {
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+.count_fc {
+    grid-column: 3/4;
+    grid-row: 1/2;
+}
+
+.count_ap {
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.count_max {
+    grid-column: 3/4;
+    grid-row: 2/3;
+}
+
+.dis_avg_score{
+    grid-column: 2/3;
+    grid-row: 3/4;
+}
+
+.dis_op{
+    grid-column: 3/4;
+    grid-row: 3/4;
+}
+
+.count_clear,
+.count_fc,
+.count_ap,
+.count_max,
+.dis_avg_score,
+.dis_op {
+    display: grid;
+    grid-template-rows: 2fr 3fr;
+    border-bottom: 2px solid darkgrey;
+}
+
+.clear_placehold,
+.fc_placehold,
+.ap_placehold,
+.max_placehold,
+.avg_score_placehold,
+.op_placehold {
+    color: rgb(70, 70, 70);
+}
+
+#I_info_title {
+    color: rgb(100, 245, 85);
+    text-shadow: 1px 1px 2px gray;
+}
+
+#II_info_title {
+    color: rgb(65, 65, 255);
+    text-shadow: 1px 1px 2px gray;
+}
+
+#III_info_title {
+    color: rgb(255, 115, 0);
+    text-shadow: 1px 1px 2px gray;
+}
+
+#IV_info_title {
+    color: rgb(170, 0, 255);
+    text-shadow: 1px 1px 2px gray;
+}
+
+#IV_a_info_title {
+    color: rgb(180, 60, 255);
+    text-shadow: 1px 1px 2px grey;
+}
+
+#table_I{
+    color: rgb(100, 245, 85);
+    text-shadow: 1px 1px 2px gray;
+    text-align: center;
+}
+
+#table_II{
+    color: rgb(65, 65, 255);
+    text-shadow: 1px 1px 2px gray;
+    text-align: center;
+}
+
+#table_III{
+    color: rgb(255, 115, 0);
+    text-shadow: 1px 1px 2px gray;
+    text-align: center;
+}
+
+#table_IV{
+    color: rgb(170, 0, 255);
+    text-shadow: 1px 1px 2px gray;
+    text-align: center;
+}
+
+#table_IV_a{
+    color: rgb(180, 60, 255);
+    text-shadow: 1px 1px 2px gray;
+    text-align: center;
+}
+
+#table_diff, #table_rank, #table_score, #table_const, #table_rate, #table_ramp{
+    text-align: center;
+}
+
+@keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 50% 50%; }
+    50% { background-position: 100% 50%; }
+    50.01% { background-position: 0% 50%; }
+    75% { background-position: 50% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.ramp_max {
+    position: relative;
+    background: linear-gradient(90deg, 
+      rgb(243, 123, 172), rgb(165,150,240), rgb(7, 210, 243), 
+      rgb(140, 240, 180), rgb(255, 242, 100), rgb(248, 180, 136), 
+      rgb(243, 123, 172), rgb(165,150,240), rgb(7, 210, 243), 
+      rgb(140, 240, 180), rgb(255, 242, 100), rgb(248, 180, 136), 
+      rgb(243, 123, 172), rgb(165,150,240));
+    background-size: 6000% 6000%;
+    animation: rainbow 60s infinite linear;
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-weight: bold;
+    color: transparent;
+
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+
+
+
+.table_rank_img{
+    height: 40px;
+    filter: drop-shadow(2px 2px 2px grey);
+}
+
+.ramp_ap{
+    color: rgb(255, 180, 0);
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.ramp_fc{
+    color: rgb(7, 210, 243);
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.ramp_clr{
+    color: rgb(210, 210, 210);
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+
+
+#main_t{
+    width: 100%;
+    height: auto;
+
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+#main_tb{
+    width: 100%;
+}
+
+#th_title{
+    width: 40%;
+}
+
+td{
+    border-bottom: 1px solid darkgrey;
+    padding: 4px;
+}
+
+#pagenation{
+    padding: 10px 5px 10px 0px;
+    text-align: right;
+    height: auto;
+}
+
+.page_btn{
+    height: 35px;
+    width: 35px;
+}
+
+#selected_btn{
+    background-color: rgb(65, 65, 255);
+    color: white;
+}
+
+
+#setting_sort{
+    height: auto;
+    width: 20%;
+}
+
+#sort_order{
+    width: 100%;
+    height: 50px;
+
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    border-bottom: 2px solid grey;
+}
+
+#sort_asc, #sort_desc{
+    width: 50%;
+    height: 50px;
+
+    font-size: 20px;
+    float: left;
+}
+
+#sort_type{
+    width: 100%;
+    height: 40px;
+
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 2px solid grey;
+}
+
+#sort_rate, #sort_const, #sort_score, #sort_level, #sort_diff{
+    width: 20%;
+    height: 30px;
+
+    font-size: 80%;
+    float: left;
+}
+
+#diff{
+    width: 100%;
+    height: 30px;
+}
+
+
+#filter_I, #filter_II, #filter_III, #filter_IV, #filter_IV_a, #filter_all{
+    width: 16.6%;
+    height: 30px;
+
+    font-size: 80%;
+    float: left;
+}

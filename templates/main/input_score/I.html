@@ -1,0 +1,262 @@
+{% load static %}
+<html>
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
+</head>
+
+<body>
+    <div id="top">
+        <div id="top_main">
+            <form action="{% url 'main:best_page' %}" method="get" id="title">
+                <button type="submit" id="top_btn">Rotaeno</button>
+            </form>
+            <form action="{% url 'main:input_score_page' %}" method="get" id="moveInputScore">
+                <button type="submit" id="top_btn">スコア入力</button>
+            </form>
+            <form action="{% url 'main:records_page' %}" method="get" id="moveResult">
+                <button type="submit" id="top_btn">レコード一覧</button>
+            </form>
+            <div id="playerName">{{ list.1 }}</div>
+        </div>
+    </div>
+    <div id="all">
+        {% for i in list.0 %}
+        <div class="box">
+            <div class="title">{{ i.0 }}</div>
+            <div class="I">
+                <div class="I_supp">I</div>
+                <div class="I_diff">{{ i.1.0 }}</div>
+                <div class="I_clear">
+                    {% if i.1.2 is True %}
+                    <div class="clear_tag">
+                        <div class="clear_tag_sec"></div>
+                    </div>
+                    {% else %}
+                    <div class="not_clear_tag">
+                        <div class="not_clear_tag_sec"></div>
+                    </div>
+                    {% endif %}
+                    <div class="write_clear">Clear</div>
+                </div>
+                <div class="I_fc">
+                    {% if i.1.3 is True %}
+                    <div class="fc_tag">
+                        <div class="fc_tag_sec"></div>
+                    </div>
+                    {% else %}
+                    <div class="not_fc_tag">
+                        <div class="not_fc_tag_sec"></div>
+                    </div>
+                    {% endif %}
+                    <div class="write_fc">Full Combo</div>
+                </div>
+                <div class="I_ap">
+                    {% if i.1.4 is True %}
+                    <div class="ap_tag">
+                        <div class="ap_tag_sec"></div>
+                    </div>
+                    {% else %}
+                    <div class="not_ap_tag">
+                        <div class="not_ap_tag_sec"></div>
+                    </div>
+                    {% endif %}
+                    <div class="write_ap">All Perfect</div>
+                </div>
+                <div class="I_score">
+                    {% if i.1.1 is not None %}
+                    {{ i.1.1 }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="II">
+                <div class="II_supp">II</div>
+                <div class="II_diff">{{ i.2.0 }}</div>
+                <div class="II_clear">
+                    {% if i.2.2 is True %}
+                    <div class="clear_tag">
+                        <div class="clear_tag_sec"></div>
+                    </div>
+                    {% else %}
+                    <div class="not_clear_tag">
+                        <div class="not_clear_tag_sec"></div>
+                    </div>
+                    {% endif %}
+                    <div class="write_clear">Clear</div>
+                </div>
+                <div class="II_fc">
+                    {% if i.2.3 is True %}
+                    <div class="fc_tag">
+                        <div class="fc_tag_sec"></div>
+                    </div>
+                    {% else %}
+                    <div class="not_fc_tag">
+                        <div class="not_fc_tag_sec"></div>
+                    </div>
+                    {% endif %}
+                    <div class="write_fc">Full Combo</div>
+                </div>
+                <div class="II_ap">
+                    {% if i.2.4 is True %}
+                    <div class="ap_tag">
+                        <div class="ap_tag_sec"></div>
+                    </div>
+                    {% else %}
+                    <div class="not_ap_tag">
+                        <div class="not_ap_tag_sec"></div>
+                    </div>
+                    {% endif %}
+                    <div class="write_ap">All Perfect</div>
+                </div>
+                <div class="II_score">
+                    {% if i.2.1 is not None %}
+                    {{ i.2.1 }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="III">
+                <div class="III_supp">III</div>
+                <div class="III_diff">{{ i.3.0 }}</div>
+                <div class="III_clear">
+                    {% if i.3.2 is True %}
+                    <div class="clear_tag">
+                        <div class="clear_tag_sec"></div>
+                    </div>
+                    {% else %}
+                    <div class="not_clear_tag">
+                        <div class="not_clear_tag_sec"></div>
+                    </div>
+                    {% endif %}
+                    <div class="write_clear">Clear</div>
+                </div>
+                <div class="III_fc">
+                    {% if i.3.3 is True %}
+                    <div class="fc_tag">
+                        <div class="fc_tag_sec"></div>
+                    </div>
+                    {% else %}
+                    <div class="not_fc_tag">
+                        <div class="not_fc_tag_sec"></div>
+                    </div>
+                    {% endif %}
+                    <div class="write_fc">Full Combo</div>
+                </div>
+                <div class="III_ap">
+                    {% if i.3.4 is True %}
+                    <div class="ap_tag">
+                        <div class="ap_tag_sec"></div>
+                    </div>
+                    {% else %}
+                    <div class="not_ap_tag">
+                        <div class="not_ap_tag_sec"></div>
+                    </div>
+                    {% endif %}
+                    <div class="write_ap">All Perfect</div>
+                </div>
+                <div class="III_score">
+                    {% if i.3.1 is not None %}
+                    {{ i.3.1 }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="IV">
+                <div class="IV_supp">IV</div>
+                <div class="IV_diff">{{ i.4.0 }}</div>
+                <div class="IV_clear">
+                    {% if i.4.2 is True %}
+                    <div class="clear_tag">
+                        <div class="clear_tag_sec"></div>
+                    </div>
+                    {% else %}
+                    <div class="not_clear_tag">
+                        <div class="not_clear_tag_sec"></div>
+                    </div>
+                    {% endif %}
+                    <div class="write_clear">Clear</div>
+                </div>
+                <div class="IV_fc">
+                    {% if i.4.3 is True %}
+                    <div class="fc_tag">
+                        <div class="fc_tag_sec"></div>
+                    </div>
+                    {% else %}
+                    <div class="not_fc_tag">
+                        <div class="not_fc_tag_sec"></div>
+                    </div>
+                    {% endif %}
+                    <div class="write_fc">Full Combo</div>
+                </div>
+                <div class="IV_ap">
+                    {% if i.4.4 is True %}
+                    <div class="ap_tag">
+                        <div class="ap_tag_sec"></div>
+                    </div>
+                    {% else %}
+                    <div class="not_ap_tag">
+                        <div class="not_ap_tag_sec"></div>
+                    </div>
+                    {% endif %}
+                    <div class="write_ap">All Perfect</div>
+                </div>
+                <div class="IV_score">
+                    {% if i.4.1 is not None %}
+                    {{ i.4.1 }}
+                    {% endif %}
+                </div>
+            </div>
+            {% if i.5.0 is not None %}
+            <div class="IV_a">
+                <div class="IV_a_supp">IV-α</div>
+                <div class="IV_a_diff">{{ i.5.0 }}</div>
+                <div class="IV_a_clear">
+                    {% if i.5.2 is True %}
+                    <div class="clear_tag">
+                        <div class="clear_tag_sec"></div>
+                    </div>
+                    {% else %}
+                    <div class="not_clear_tag">
+                        <div class="not_clear_tag_sec"></div>
+                    </div>
+                    {% endif %}
+                    <div class="write_clear">Clear</div>
+                </div>
+                <div class="IV_a_fc">
+                    {% if i.5.3 is True %}
+                    <div class="fc_tag">
+                        <div class="fc_tag_sec"></div>
+                    </div>
+                    {% else %}
+                    <div class="not_fc_tag">
+                        <div class="not_fc_tag_sec"></div>
+                    </div>
+                    {% endif %}
+                    <div class="write_fc">Full Combo</div>
+                </div>
+                <div class="IV_a_ap">
+                    {% if i.5.4 is True %}
+                    <div class="ap_tag">
+                        <div class="ap_tag_sec"></div>
+                    </div>
+                    {% else %}
+                    <div class="not_ap_tag">
+                        <div class="not_ap_tag_sec"></div>
+                    </div>
+                    {% endif %}
+                    <div class="write_ap">All Perfect</div>
+                </div>
+                <div class="IV_a_score">
+                    {% if i.5.1 is not None %}
+                    {{ i.5.1 }}
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+            <form action="{% url 'main:score' encoded_pk=i.0|urlencode %}" method="get" class="form">
+                <input type="submit" value="リザルト入力へ" class="btn">
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

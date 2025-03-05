@@ -1,0 +1,124 @@
+{% load static %}
+<html>
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/score.css' %}" type="text/css" />
+</head>
+
+<body>
+    <div id="all">
+        <form action="{% url 'main:score' object.title|urlencode %}" method="POST" novalidate id="form">
+            <div id="title">
+                {{ diff.0.title }}
+            </div>
+            {% csrf_token %}
+            <div class="I">
+                <div class="I_supp">I</div>
+                <div class="clear" id="I_clear">
+                    <label for="{{ form.I_clear.id_for_label }}">clear</label>
+                    {{ form.I_clear }}
+                </div>
+                <div class="fc" id="I_fc">
+                    <label for="{{ form.I_fc.id_for_label }}">fc</label>
+                    {{ form.I_fc }}
+                </div>
+                <div class="ap" id="I_ap">
+                    <label for="{{ form.I_ap.id_for_label }}">ap</label>
+                    {{ form.I_ap }}
+                </div>
+                <div class="score" id="I_score">
+                    <label for="{{ form.I_score.id_for_label }}">score</label>
+                    {{ form.I_score }}
+                </div>
+            </div>
+
+            <div class="II">
+                <div class="II_supp">II</div>
+                <div class="clear" id="II_clear">
+                    <label for="{{ form.II_clear.id_for_label }}">clear</label>
+                    {{ form.II_clear }}
+                </div>
+                <div class="fc" id="II_fc">
+                    <label for="{{ form.II_fc.id_for_label }}">fc</label>
+                    {{ form.II_fc }}
+                </div>
+                <div class="ap" id="II_ap">
+                    <label for="{{ form.II_ap.id_for_label }}">ap</label>
+                    {{ form.II_ap }}
+                </div>
+                <div class="score" id="I_score">
+                    <label for="{{ form.II_score.id_for_label }}">score</label>
+                    {{ form.II_score }}
+                </div>
+            </div>
+
+            <div class="III">
+                <div class="III_supp">III</div>
+                <div class="clear" id="III_clear">
+                    <label for="{{ form.III_clear.id_for_label }}">clear</label>
+                    {{ form.III_clear }}
+                </div>
+                <div class="fc" id="III_fc">
+                    <label for="{{ form.III_fc.id_for_label }}">fc</label>
+                    {{ form.III_fc }}
+                </div>
+                <div class="ap" id="III_ap">
+                    <label for="{{ form.III_ap.id_for_label }}">ap</label>
+                    {{ form.III_ap }}
+                </div>
+                <div class="score" id="III_score">
+                    <label for="{{ form.III_score.id_for_label }}">score</label>
+                    {{ form.III_score }}
+                </div>
+            </div>
+
+            <div class="IV">
+                <div class="IV_supp">IV</div>
+                <div class="clear" id="IV_clear">
+                    <label for="{{ form.IV_clear.id_for_label }}">clear</label>
+                    {{ form.IV_clear }}
+                </div>
+                <div class="fc" id="IV_fc">
+                    <label for="{{ form.IV_fc.id_for_label }}">fc</label>
+                    {{ form.IV_fc }}
+                </div>
+                <div class="ap" id="IV_ap">
+                    <label for="{{ form.IV_ap.id_for_label }}">ap</label>
+                    {{ form.IV_ap }}
+                </div>
+                <div class="score" id="IV_score">
+                    <label for="{{ form.IV_score.id_for_label }}">score</label>
+                    {{ form.IV_score }}
+                </div>
+            </div>
+
+            {% if diff.0.IV_a_diff is not None %}
+            <div class="IV_a">
+                <div class="IV_a_supp">IV_α</div>
+                <div class="clear" id="IV_a_clear">
+                    <label for="{{ form.IV_a_clear.id_for_label }}">clear</label>
+                    {{ form.IV_a_clear }}
+                </div>
+                <div class="fc" id="IV_a_fc">
+                    <label for="{{ form.IV_a_fc.id_for_label }}">fc</label>
+                    {{ form.IV_a_fc }}
+                </div>
+                <div class="ap" id="IV_a_ap">
+                    <label for="{{ form.IV_a_ap.id_for_label }}">ap</label>
+                    {{ form.IV_a_ap }}
+                </div>
+                <div class="score" id="IV_a_score">
+                    <label for="{{ form.IV_a_score.id_for_label }}">score</label>
+                    {{ form.IV_a_score }}
+                </div>
+            </div>
+            {% endif %}
+            <div class="main_btn">
+                <button type="submit" class="btn">更新</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
