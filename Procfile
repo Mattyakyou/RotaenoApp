@@ -1,1 +1,1 @@
-web: gunicorn rotaeno.wsgi:application
+web: gunicorn rotaenoSite.wsgi:application
