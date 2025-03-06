@@ -1,5 +1,8 @@
-Django==4.2
-gunicorn
-psycopg2-binary
-dj-database-url
-whitenoise
+asgiref==3.8.1
+Django==5.1.6
+django-extensions==3.2.3
+gunicorn==23.0.0
+packaging==24.2
+sqlparse==0.5.3
+tzdata==2025.1
+waitress==3.0.2
