@@ -1,1 +1,1 @@
-web: gunicorn rotaeno.wsgi:application --bind 0.0.0.0:$PORT
+web: waitress-serve --port=$PORT rotaeno.wsgi:application
