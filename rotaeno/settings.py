@@ -105,7 +105,14 @@ WSGI_APPLICATION = 'rotaeno.wsgi.application'
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('postgresql://mattya_rotaeno_database_5ycw_user:xe9kqPTy4UyJTkme8Ti04dJTd1WLoqMG@dpg-cv4ov3lds78s73e1qukg-a/mattya_rotaeno_database_5ycw'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('mattya_rotaeno_database'),
+        'USER': os.getenv('mattya_rotaeno_database_5ycw_user'),
+        'PASSWORD': os.getenv('xe9kqPTy4UyJTkme8Ti04dJTd1WLoqMG'),
+        'HOST': os.getenv('dpg-cv4ov3lds78s73e1qukg-a'),
+        'PORT': os.getenv('DB_PORT', '5432'),
+    }
 }
 
 
