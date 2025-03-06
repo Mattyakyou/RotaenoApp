@@ -88,20 +88,25 @@ WSGI_APPLICATION = 'rotaeno.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST':'localhost',
-        'NAME': 'mattyaDatabase',
-        'USER': 'root',
-        'PASSWORD': 'gT4$Lm@qX9^NpWz7&Vb!F2KdY3',
-        'OPTIONS': {
-            'charset': 'utf8',
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        }
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'HOST':'localhost',
+#         'NAME': 'mattyaDatabase',
+#         'USER': 'root',
+#         'PASSWORD': 'gT4$Lm@qX9^NpWz7&Vb!F2KdY3',
+#         'OPTIONS': {
+#             'charset': 'utf8',
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#         }
+#     }
+# }
 
+import dj_database_url
+
+DATABASES = {
+    'default': dj_database_url.config(default=os.getenv('postgresql://mattya_rotaeno_database_5ycw_user:xe9kqPTy4UyJTkme8Ti04dJTd1WLoqMG@dpg-cv4ov3lds78s73e1qukg-a/mattya_rotaeno_database_5ycw'))
+}
 
 
 
