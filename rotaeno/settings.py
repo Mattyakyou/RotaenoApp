@@ -102,20 +102,29 @@ WSGI_APPLICATION = 'rotaeno.wsgi.application'
 #     }
 # }
 
+# import dj_database_url
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.getenv('mattya_rotaeno_database'),
+#         'USER': os.getenv('mattya_rotaeno_database_5ycw_user'),
+#         'PASSWORD': os.getenv('xe9kqPTy4UyJTkme8Ti04dJTd1WLoqMG'),
+#         'HOST': os.getenv('dpg-cv4ov3lds78s73e1qukg-a'),
+#         'PORT': os.getenv('DB_PORT', '5432'),
+#     }
+# }
+
 import dj_database_url
+from dotenv import load_dotenv
+
+load_dotenv()
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('mattya_rotaeno_database'),
-        'USER': os.getenv('mattya_rotaeno_database_5ycw_user'),
-        'PASSWORD': os.getenv('xe9kqPTy4UyJTkme8Ti04dJTd1WLoqMG'),
-        'HOST': os.getenv('dpg-cv4ov3lds78s73e1qukg-a'),
-        'PORT': os.getenv('DB_PORT', '5432'),
-    }
+    'default': dj_database_url.config(
+        default=os.getenv('postgresql://postgres:WbKelquuSufWfvjkNidduVKkJNxpCnna@postgres.railway.internal:5432/railway')  
+    )
 }
-
-
 
 
 
