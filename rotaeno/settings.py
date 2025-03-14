@@ -177,7 +177,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-CSRF_TRUSTED_ORIGINS = ['https://*.amazanaws.com']
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-1218.up.railway.app',
+    'https://*.amazanaws.com',
+]
 
 
 
