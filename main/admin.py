@@ -1,12 +1,25 @@
 from django.contrib import admin
 from .models import Diff
 from .models import Score
-from .models import User
+
+
+
+
 
 # Register your models here.
 admin.site.register(Diff)
 admin.site.register(Score)
-admin.site.register(User)
+
+from django.contrib.auth.admin import UserAdmin
+from .models import CustomUser
+
+class CustomUserAdmin(UserAdmin):
+    model = CustomUser
+    list_display = ['username', 'email']
+
+admin.site.register(CustomUser, CustomUserAdmin)
+
+
 
 #name: Mattyakyoukyouso
 #email: mattyakyou@gmail.com

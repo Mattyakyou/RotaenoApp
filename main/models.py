@@ -2,13 +2,16 @@ from django.db import models
 
 from django.core.validators import MaxValueValidator
 
-from django.contrib.auth.models import User
+
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
+class CustomUser(AbstractUser):
+    pass
 
 class Diff(models.Model):
     title = models.CharField(
-        max_length=100
+        max_length=255
     )
     I_diff = models.DecimalField(
         max_digits=3, decimal_places=1
@@ -39,10 +42,10 @@ class Diff(models.Model):
         return s
 
 class Score(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
     title = models.CharField(
-        max_length=100
+        max_length=255
     )
 
     I_score = models.PositiveIntegerField(
@@ -130,14 +133,5 @@ class Score(models.Model):
             f"IV_a_ap={'Active' if self.IV_a_ap else 'Inactive'} >"
         return s
 
-class User(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    text = models.CharField(
-        default="aaa",
-        max_length=255
-    )
 
-    def __str__(self):
-        s = f"<User user={self.user.username} " + \
-            f"text={self.text} >"
-        return s
+

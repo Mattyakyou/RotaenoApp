@@ -18,7 +18,6 @@ from django.utils.encoding import force_bytes
 from urllib.parse import unquote
 
 
-from django.contrib.auth.decorators import login_required
 
 
 #create function
@@ -139,8 +138,10 @@ class LookingBest(ListView):
         else:
             if middle_rate_count !=0 :
                 rate=(ten_rate/10)*0.6+(middle_rate/middle_rate_count)*0.2
-            else:
+            elif ten_rate_count !=0:
                 rate=(ten_rate/ten_rate_count)*0.6
+            else:
+                rate=0
 
         real_rate = math.floor(rate * 10**3) / 10**3
             
@@ -384,8 +385,17 @@ class LookingRecords(ListView):
             else:
                 each_list = sorted(each_list, key=lambda x: priority_map.get(x[1]), reverse=True)
 
-        if filter_diff != "all":
+        if filter_diff == "I":
             each_list = list(filter(lambda x: x[1] == filter_diff, each_list))
+        elif filter_diff == "II":
+            each_list = list(filter(lambda x: x[1] == filter_diff, each_list))
+        elif filter_diff == "III":
+            each_list = list(filter(lambda x: x[1] == filter_diff, each_list))
+        elif filter_diff == "IV":
+            each_list = list(filter(lambda x: x[1] == filter_diff, each_list))
+        elif filter_diff == "IV-α":
+            each_list = list(filter(lambda x: x[1] == filter_diff, each_list))
+
 
         each_list = Paginator(each_list, 50)
 
@@ -439,29 +449,18 @@ class UpdateScore(UpdateView):
         return context
 
 
-    
 
+from .forms import CustomUserCreationForm
 
-@login_required
-def sync_scores(request):
-    user = request.user  # 1. ログインしているユーザーを取得
-
-    # 2. diffテーブルからデータを取得
-    diffs = Diff.objects.all()
-
-    # 3. scoreテーブルにdiffのtitleがすでに存在するか確認
-    for diff in diffs:
-        # 同じユーザーとタイトルのScoreがすでに存在するかチェック
-        if not Score.objects.filter(user=user, title=diff.title).exists():
-            # 4. 新しいScoreインスタンスを作成し、titleを設定
-            score = Score.objects.create(user=user, title=diff.title)
-            score.save()
-
-    # 5. 処理後、リダイレクトまたは適切なレスポンスを返す
-    return redirect('main/best/')  # 適切なビューにリダイレクト
+def register(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/main/login/')  # 登録後にログインページにリダイレクト
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'registration/register.html', {'form': form})
 
 
 
-
-def profile_view(request):
-    return render(request, 'main/profile.html', {'user': request.user})

@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.discord',
 ]
 SITE_ID = 1
 
@@ -121,9 +120,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('postgresql://postgres:WbKelquuSufWfvjkNidduVKkJNxpCnna@postgres.railway.internal:5432/railway')  
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',  
+        'NAME': 'railway',                          
+        'USER': 'postgres',                         
+        'PASSWORD': 'WbKelquuSufWfvjkNidduVKkJNxpCnna',  
+        'HOST': 'trolley.proxy.rlwy.net',           
+        'PORT': '22347',                            
+    }
 }
 
 
@@ -176,30 +180,26 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 CSRF_TRUSTED_ORIGINS = ['https://*.amazanaws.com']
 
 
-# discord
+
+
+
+
+
+
+
+
+
+AUTH_USER_MODEL = 'main.CustomUser'
 
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
+    'django.contrib.auth.backends.ModelBackend', 
 ]
 
-LOGIN_URL = "/"
-LOGIN_REDIRECT_URL = "http://127.0.0.1:8000/main/best/?"  # ログイン後のリダイレクト先
-LOGOUT_REDIRECT_URL = "/"   # ログアウト後のリダイレクト先
-SOCIALACCOUNT_PROVIDERS = {
-    'discord': {
-        'SCOPE': ['identify', 'email'],
-    }
-}
+# ログインページのURLを指定する（ログインしていないユーザーがアクセスするとリダイレクトされる）
+LOGIN_URL = '/main/login/'  # ログイン画面へのURLを指定
 
+# ログイン後にリダイレクトされるURLを指定
+LOGIN_REDIRECT_URL = '/main/input_score/'  # ログイン後の遷移先を設定
 
-SOCIALACCOUNT_PROVIDERS = {
-    'discord': {
-        'APP': {
-            'client_id': '1341029127674921010',
-            'secret': 'x-ANCYM0JiP85lBp5FZmzzX0Bpy33cDH',
-            'key': ''
-        },
-        'SCOPE': ['identify', 'email'],
-    }
-}
+# ログアウト後にリダイレクトされるページ
+LOGOUT_REDIRECT_URL = '/main/login/'  # ホームページや任意のページにリダイレクト
