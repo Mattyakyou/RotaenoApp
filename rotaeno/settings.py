@@ -88,19 +88,19 @@ WSGI_APPLICATION = 'rotaeno.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST':'localhost',
-        'NAME': 'mattyaDatabase',
-        'USER': 'root',
-        'PASSWORD': 'gT4$Lm@qX9^NpWz7&Vb!F2KdY3',
-        'OPTIONS': {
-            'charset': 'utf8',
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        }
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'HOST':'localhost',
+#         'NAME': 'mattyaDatabase',
+#         'USER': 'root',
+#         'PASSWORD': 'gT4$Lm@qX9^NpWz7&Vb!F2KdY3',
+#         'OPTIONS': {
+#             'charset': 'utf8',
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#         }
+#     }
+# }
 
 # import dj_database_url
 
@@ -117,21 +117,21 @@ DATABASES = {
 
 #ここから下がPostgresSQL使うとき
 
-# import dj_database_url
-# from dotenv import load_dotenv
+import dj_database_url
+from dotenv import load_dotenv
 
-# load_dotenv()
+load_dotenv()
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',  
-#         'NAME': 'railway',                          
-#         'USER': 'postgres',                         
-#         'PASSWORD': 'WbKelquuSufWfvjkNidduVKkJNxpCnna',  
-#         'HOST': 'trolley.proxy.rlwy.net',           
-#         'PORT': '22347',                            
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',  
+        'NAME': 'railway',                          
+        'USER': 'postgres',                         
+        'PASSWORD': 'WbKelquuSufWfvjkNidduVKkJNxpCnna',  
+        'HOST': 'trolley.proxy.rlwy.net',           
+        'PORT': '22347',                            
+    }
+}
 
 
 
