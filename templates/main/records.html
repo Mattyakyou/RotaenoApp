@@ -17,6 +17,9 @@
             <form action="{% url 'main:records_page' %}" method="get" id="moveResult">
                 <button type="submit" id="top_btn">レコード一覧</button>
             </form>
+            <form action="{% url 'main:display_score_page' %}" method="get" id="transition_score">
+                <button type="submit" id="top_btn">レコード出力</button>
+            </form>
             <div id="playerName">{{ list.8 }}</div>
         </div>
     </div>

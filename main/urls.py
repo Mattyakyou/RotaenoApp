@@ -13,6 +13,9 @@ urlpatterns = [
     path('records/', views.LookingRecords.as_view(), name="records_page"),
     path('input_score/', views.InputScore.as_view(), name="input_score_page"),
     re_path(r'^score/(?P<encoded_pk>.+)/$', views.UpdateScore.as_view(), name="score"),
+    path('display_score/', views.DisplayScore.as_view(), name="display_score_page"),
+
+    path('best_img/', views.create_best_image, name="best_image"),
 
 
 

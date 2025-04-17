@@ -18,7 +18,7 @@ body {
     margin-right: auto;
 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 #title {
@@ -60,12 +60,25 @@ body {
     cursor: pointer;
 }
 
+#transition_score {
+    display: grid;
+    height: 100%;
+    place-items: center;
+    font-size: x-large;
+
+    grid-column: 4/5;
+
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
 #playerName {
     display: grid;
     height: 100%;
     place-items: center;
 
-    grid-column: 5/6;
+    grid-column: 6/7;
 }
 
 #top_btn {

@@ -26,7 +26,8 @@ SECRET_KEY = "django-insecure-4z$5l9*8o!2@xv%y^3@f@k3v2+!u7*7s@z@3@#1o6"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['web-production-1218.up.railway.app', 'localhost', '127.0.0.1']
+
 
 
 # Application definition
@@ -87,19 +88,19 @@ WSGI_APPLICATION = 'rotaeno.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'HOST':'localhost',
-#         'NAME': 'mattyaDatabase',
-#         'USER': 'root',
-#         'PASSWORD': 'gT4$Lm@qX9^NpWz7&Vb!F2KdY3',
-#         'OPTIONS': {
-#             'charset': 'utf8',
-#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-#         }
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST':'localhost',
+        'NAME': 'mattyaDatabase',
+        'USER': 'root',
+        'PASSWORD': 'gT4$Lm@qX9^NpWz7&Vb!F2KdY3',
+        'OPTIONS': {
+            'charset': 'utf8',
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        }
+    }
+}
 
 # import dj_database_url
 
@@ -114,21 +115,23 @@ WSGI_APPLICATION = 'rotaeno.wsgi.application'
 #     }
 # }
 
-import dj_database_url
-from dotenv import load_dotenv
+#ここから下がPostgresSQL使うとき
 
-load_dotenv()
+# import dj_database_url
+# from dotenv import load_dotenv
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',  
-        'NAME': 'railway',                          
-        'USER': 'postgres',                         
-        'PASSWORD': 'WbKelquuSufWfvjkNidduVKkJNxpCnna',  
-        'HOST': 'trolley.proxy.rlwy.net',           
-        'PORT': '22347',                            
-    }
-}
+# load_dotenv()
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',  
+#         'NAME': 'railway',                          
+#         'USER': 'postgres',                         
+#         'PASSWORD': 'WbKelquuSufWfvjkNidduVKkJNxpCnna',  
+#         'HOST': 'trolley.proxy.rlwy.net',           
+#         'PORT': '22347',                            
+#     }
+# }
 
 
 
@@ -183,7 +186,7 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 
-
+CSRF_COOKIE_SECURE = True
 
 
 
